@@ -1,5 +1,6 @@
-export function Status({status}: any) {
-  console.log(status);
+import { TypeStatus } from "../types/TypeStatus";
+
+export function Status({status}: TypeStatus) {
   
   return (
     <aside className="inline-table text-xl border-sky-800 border-2 ml-40">
