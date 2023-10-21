@@ -13,6 +13,8 @@ export default async function Home() {
       espirito: Number(data?.[0].espirito),
     }
 
+  console.log(status);
+  
   return (
     <>
     {data?.map((player) => (
