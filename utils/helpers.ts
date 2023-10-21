@@ -13,7 +13,6 @@ export async function getSheet(id:number) {
       name_persona
     )
   `).eq('id', `${id}`)
-  console.log(sheet, 'aa');
 
   return sheet
 }
