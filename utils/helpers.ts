@@ -1,11 +1,12 @@
+import { TypeSheet } from "@/app/types/TypeSheet";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers";
 
-export async function getSheet(id:number) {
+export async function getSheet(id:number): Promise<TypeSheet> {
   const cookieStore = cookies()
   const supabase = createServerComponentClient({ cookies: () => cookieStore })
 
-  const {data: sheet, error } = await supabase
+  const {data} = await supabase
   .from('sheet')
   .select(`*,
     persona,
@@ -13,6 +14,6 @@ export async function getSheet(id:number) {
       name_persona
     )
   `).eq('id', `${id}`)
-
-  return sheet
+  
+  return data
 }
