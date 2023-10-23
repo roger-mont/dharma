@@ -1,7 +1,14 @@
-export function PersonaName({name}:any) {
+import {
+  Card,
+  CardTitle,
+} from "@/components/ui/card"
+
+export function PersonaName({name}: {name:string}) {
+  console.log(typeof name, 'aqui');
+  
   return (
-    <header className="flex justify-center">
-    <h1 className="text-slate-300 font-semibold inline-flex justify-center mx-80 text-4xl border-sky-800 border-2">{name}</h1>
-    </header>
+    <Card className="flex justify-center">
+      <CardTitle>{name}</CardTitle>
+    </Card>
   )
 }

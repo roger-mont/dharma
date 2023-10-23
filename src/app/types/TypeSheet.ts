@@ -14,4 +14,4 @@ export type TypeSheet = [
     act_resis: number
     consequencias: number
   }
-] | any[] | null
+] | null
