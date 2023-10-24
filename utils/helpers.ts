@@ -1,12 +1,19 @@
-import { TypeSheet } from "@/app/types/TypeSheet";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers";
 
-export async function getSheet(id:number): Promise<TypeSheet> {
+import { PostgrestError } from '@supabase/supabase-js'
+
+
+export type DbResult<T> = T extends PromiseLike<infer U> ? U : never
+export type DbResultOk<T> = T extends PromiseLike<{ data: infer U }> ? Exclude<U, null> : never
+export type DbResultErr = PostgrestError
+
+
+export async function getSheet(id:number) {
   const cookieStore = cookies()
   const supabase = createServerComponentClient({ cookies: () => cookieStore })
 
-  const {data} = await supabase
+  const query = supabase
   .from('sheet')
   .select(`*,
     persona,
@@ -15,5 +22,7 @@ export async function getSheet(id:number): Promise<TypeSheet> {
     )
   `).eq('id', `${id}`)
   
-  return data
+  const {data}: DbResult<typeof query> = await query 
+  
+  return data?.[0]
 }

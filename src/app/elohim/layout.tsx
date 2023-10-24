@@ -15,7 +15,7 @@ export default function ElohimLayout({
     <head>
     <link rel='icon' href='/icon.ico' sizes='any'/>
     </head>
-    <body>{children}</body>
+    <body className="flex flex-col h-screen w-full justify-center items-center">{children}</body>
   </html>
   )
 }
