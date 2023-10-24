@@ -5,7 +5,7 @@ import {
   // CardDescription,
   CardFooter,
   CardHeader,
-  // CardTitle,
+  CardTitle,
 } from "@/components/ui/card"
 
 type StatusProps = {
@@ -16,13 +16,17 @@ export function Status({status}: StatusProps) {
   const keys = Object.keys(status)
   
   return (
-    <aside className="flex flex-col rounded-xl">
+    <aside className="flex justify-center p-4 rounded-xl">
       {keys.map((key, index) => {
         return (
-          <Card key={index}>
-          <CardHeader key={index}>{key}</CardHeader>
-          <CardContent>{status[key]}</CardContent>
-          <CardFooter>Rodar</CardFooter>
+          <Card className="m-2 w-40 text-center content-center" key={index}>
+          <CardHeader key={index}>
+            <CardTitle>{key}</CardTitle>
+            </CardHeader>
+          <CardContent >{status[key]}</CardContent>
+          <CardFooter className="flex justify-center">
+            <button>🎲</button>
+          </CardFooter>
           </Card>
         )
 
