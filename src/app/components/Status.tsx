@@ -13,7 +13,6 @@ type StatusProps = {
 }
 export function Status({status}: StatusProps) {
 
-  console.log(status, 'acola');
   const keys = Object.keys(status)
   
   return (
