@@ -1,4 +1,3 @@
-export type TypeStatus= {
-   [key: string]: number
-  }
-
+export type TypeStatus = {
+  [key: string]: number;
+};
