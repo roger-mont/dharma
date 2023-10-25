@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/toaster';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function ElohimLayout({
       </head>
       <body className="flex flex-col h-screen w-full justify-center items-center">
         {children}
+        <Toaster />
       </body>
     </html>
   );

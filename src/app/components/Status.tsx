@@ -1,3 +1,4 @@
+'use client';
 import { TypeStatus } from '../types/TypeStatus';
 import {
   Card,
@@ -7,16 +8,15 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-import { Dice } from 'dice-typescript';
+import { useToast } from '@/components/ui/use-toast';
+
+import { rollADice } from '../../../utils/dice';
 
 type StatusProps = {
   status: TypeStatus;
 };
 export function Status({ status }: StatusProps) {
-  const dice = new Dice();
-
-  console.log(dice.roll('{1d10}>=8'));
-
+  const { toast } = useToast();
   const keys = Object.keys(status);
 
   return (
@@ -29,7 +29,15 @@ export function Status({ status }: StatusProps) {
             </CardHeader>
             <CardContent>{status[key]}</CardContent>
             <CardFooter className="flex justify-center">
-              <button>🎲</button>
+              <button
+                onClick={() =>
+                  toast({
+                    description: `${rollADice(Number(status[key]))}`,
+                  })
+                }
+              >
+                🎲
+              </button>
             </CardFooter>
           </Card>
         );
