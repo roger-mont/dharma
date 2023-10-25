@@ -1,9 +1,10 @@
-import { Card, CardTitle } from '@/components/ui/card';
+import { ThemeToogle } from './ThemeToogle';
 
 export function PersonaName({ name }: { name: string }) {
   return (
-    <Card className="flex justify-center">
-      <CardTitle>{name}</CardTitle>
-    </Card>
+    <header className="flex justify-between m-4 ">
+      <h1 className="text-2xl">{name}</h1>
+      <ThemeToogle />
+    </header>
   );
 }

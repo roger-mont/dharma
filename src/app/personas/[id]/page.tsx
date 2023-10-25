@@ -22,6 +22,7 @@ export default async function Home({
     return (
       <>
         <PersonaName name={data?.persona.name_persona} />
+
         <Status status={status} />
       </>
     );
