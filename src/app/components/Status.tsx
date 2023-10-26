@@ -23,13 +23,18 @@ export function Status({ status }: StatusProps) {
     <aside className="flex justify-center p-4 rounded-xl flex-wrap">
       {keys.map((key, index) => {
         return (
-          <Card className="m-2 w-44 text-center content-center" key={index}>
+          <Card
+            className="m-2 w-[173px] text-center content-center"
+            key={index}
+          >
             <CardHeader key={index}>
               <CardTitle>{`${key[0].toUpperCase()}${key.substring(
                 1,
               )}`}</CardTitle>
             </CardHeader>
-            <CardContent>{status[key]}</CardContent>
+            <CardContent className="text-3xl font-light">
+              {status[key]}
+            </CardContent>
             <CardFooter className="flex justify-center">
               <button
                 onClick={() =>
