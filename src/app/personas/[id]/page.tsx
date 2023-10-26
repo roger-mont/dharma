@@ -1,3 +1,4 @@
+import { LifeBar } from '@/app/components/LifeBar';
 import { getSheet } from '../../../../utils/helpers';
 import { PersonaName } from '../../components/PersonaName';
 import { Status } from '../../components/Status';
@@ -22,7 +23,10 @@ export default async function Home({
     return (
       <>
         <PersonaName name={data?.persona.name_persona} />
-
+        <LifeBar
+          max_vitalidade={data.max_vitalidade}
+          act_vitalidade={data.act_vitalidade}
+        />
         <Status status={status} />
       </>
     );
