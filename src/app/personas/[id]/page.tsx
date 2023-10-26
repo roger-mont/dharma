@@ -26,6 +26,9 @@ export default async function Home({
         <LifeBar
           max_vitalidade={data.max_vitalidade}
           act_vitalidade={data.act_vitalidade}
+          max_resis={data.max_resis}
+          act_resis={data.act_resis}
+          id={data.id}
         />
         <Status status={status} />
       </>
