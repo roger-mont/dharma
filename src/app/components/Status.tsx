@@ -11,17 +11,13 @@ import {
 import { useToast } from '@/components/ui/use-toast';
 
 import { rollADice } from '../../../utils/dice';
-import { Dice } from 'dice-typescript';
 
 type StatusProps = {
   status: TypeStatus;
 };
 export function Status({ status }: StatusProps) {
-  const dice = new Dice();
   const { toast } = useToast();
   const keys = Object.keys(status);
-
-  console.log(dice.roll('1d16'));
 
   return (
     <aside className="flex justify-center p-4 rounded-xl flex-wrap">
