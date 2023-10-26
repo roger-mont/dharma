@@ -32,7 +32,11 @@ export function Status({ status }: StatusProps) {
               <button
                 onClick={() =>
                   toast({
-                    description: `${rollADice(Number(status[key]))}`,
+                    duration: 3000,
+                    title: `Resultado da rolagem de ${key}:`,
+                    description: `${rollADice(status[key])?.dice} : ${rollADice(
+                      status[key],
+                    )?.total}`,
                   })
                 }
               >
