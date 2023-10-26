@@ -25,7 +25,7 @@ export function Status({ status }: StatusProps) {
         return (
           <Card className="m-2 w-40 text-center content-center" key={index}>
             <CardHeader key={index}>
-              <CardTitle>{`${key[0].toUpperCase()}${key.substring(
+              <CardTitle className="text-xl">{`${key[0].toUpperCase()}${key.substring(
                 1,
               )}`}</CardTitle>
             </CardHeader>
