@@ -31,6 +31,9 @@ export function ThemeToogle() {
         <DropdownMenuItem onClick={() => setTheme('dark')}>
           Escuro
         </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('purple')}>
+          Roxo
+        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('system')}>
           Sistema
         </DropdownMenuItem>

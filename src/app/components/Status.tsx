@@ -11,6 +11,8 @@ import {
 import { useToast } from '@/components/ui/use-toast';
 
 import { rollADice } from '../../../utils/dice';
+import { Button } from '@/components/ui/button';
+import { Dices } from 'lucide-react';
 
 type StatusProps = {
   status: TypeStatus;
@@ -33,7 +35,7 @@ export function Status({ status }: StatusProps) {
               {status[key]}
             </CardContent>
             <CardFooter className="flex justify-center">
-              <button
+              <Button
                 onClick={() =>
                   toast({
                     duration: 3000,
@@ -46,8 +48,8 @@ export function Status({ status }: StatusProps) {
                   })
                 }
               >
-                🎲
-              </button>
+                <Dices />
+              </Button>
             </CardFooter>
           </Card>
         );
