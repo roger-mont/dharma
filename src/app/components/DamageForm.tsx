@@ -22,6 +22,7 @@ import { useRouter } from 'next/navigation';
 
 export function DamageForm({ status }: TypeDamage) {
   const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -29,15 +30,24 @@ export function DamageForm({ status }: TypeDamage) {
       defense: `${status.movimento}`,
     },
   });
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     const reducedDamage = Number(values.damage) - Number(values.defense);
+
     if (status.act_resis > 0 && reducedDamage >= 1) {
       const realDamage = status.act_resis - reducedDamage;
+
       router.refresh();
+
+      form.reset();
+
       return decreaseResis(realDamage, status.id);
     } else if (status.act_resis == 0 && reducedDamage >= 1) {
-      router.refresh();
       const realDamage = status.act_vitalidade - reducedDamage;
+
+      router.refresh();
+
+      form.reset();
 
       return decreaseLife(realDamage, status.id);
     }
