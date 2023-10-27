@@ -1,5 +1,6 @@
 'use-client';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { Database } from '../supabase/supabase';
 
 // import { PostgrestError } from '@supabase/supabase-js';
 
@@ -26,13 +27,52 @@ export async function getSheet(id: number) {
   return response[0];
 }
 
-export async function decreaseDamage(damage: number, id: number) {
-  const supabase = createClientComponentClient();
+export async function decreaseResis(damage: number, id: number) {
+  const supabase = createClientComponentClient<Database>();
 
   const query = supabase
     .from('sheet')
     .update({
       act_resis: damage,
+    })
+    .eq('id', id);
+
+  return query;
+}
+
+export async function decreaseLife(damage: number, id: number) {
+  const supabase = createClientComponentClient<Database>();
+
+  const query = supabase
+    .from('sheet')
+    .update({
+      act_vitalidade: damage,
+    })
+    .eq('id', id);
+
+  return query;
+}
+
+export async function restoreResis(value: number, id: number) {
+  const supabase = createClientComponentClient<Database>();
+
+  const query = supabase
+    .from('sheet')
+    .update({
+      act_resis: value,
+    })
+    .eq('id', id);
+
+  return query;
+}
+
+export async function restoreLife(value: number, id: number) {
+  const supabase = createClientComponentClient<Database>();
+
+  const query = supabase
+    .from('sheet')
+    .update({
+      act_vitalidade: value,
     })
     .eq('id', id);
 

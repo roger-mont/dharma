@@ -17,19 +17,22 @@ export default async function Home({
     mente: Number(data?.mente),
     espirito: Number(data?.espirito),
   };
+
+  const lifeBar = {
+    id: id,
+    max_resis: Number(data?.max_resis),
+    act_resis: Number(data?.act_resis),
+    max_vitalidade: Number(data?.max_vitalidade),
+    act_vitalidade: Number(data?.act_vitalidade),
+    movimento: Number(data?.movimento),
+  };
   if (data == undefined) {
     return <Error />;
   } else {
     return (
       <>
         <PersonaName name={data?.persona.name_persona} />
-        <LifeBar
-          max_vitalidade={data.max_vitalidade}
-          act_vitalidade={data.act_vitalidade}
-          max_resis={data.max_resis}
-          act_resis={data.act_resis}
-          id={data.id}
-        />
+        <LifeBar status={lifeBar} />
         <Status status={status} />
       </>
     );

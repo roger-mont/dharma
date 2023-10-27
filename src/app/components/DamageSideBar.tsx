@@ -13,7 +13,7 @@ import { Sword } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DamageForm } from './DamageForm';
 import { TypeDamage } from '../types/TypeDamage';
-import { Label } from '@radix-ui/react-label';
+import { ResisComponent } from './ResisComponent';
 
 export function DamageSideBar({ status }: TypeDamage) {
   return (
@@ -29,12 +29,7 @@ export function DamageSideBar({ status }: TypeDamage) {
           <SheetDescription>Escreva seu dano total</SheetDescription>
         </SheetHeader>
         <DamageForm status={status} />
-        <Label className="border-2 rounded-xl">
-          Resistencia Maxima: {status.max_resis}
-        </Label>
-        <Label className="border-2 rounded-xl">
-          Resistencia Atual: {status.act_resis}
-        </Label>
+        <ResisComponent status={status} />
       </SheetContent>
     </Sheet>
   );
