@@ -25,7 +25,11 @@ export default function RootLayout({
       </head>
 
       <body className={fontSans.variable}>
-        <ThemeProvider attribute="class" defaultTheme="system">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="purple"
+          themes={['light', 'dark', 'system', 'purple']}
+        >
           {children}
         </ThemeProvider>
       </body>

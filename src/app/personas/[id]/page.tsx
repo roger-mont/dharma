@@ -1,3 +1,4 @@
+import { LifeBar } from '@/app/components/LifeBar';
 import { getSheet } from '../../../../utils/helpers';
 import { PersonaName } from '../../components/PersonaName';
 import { Status } from '../../components/Status';
@@ -16,13 +17,22 @@ export default async function Home({
     mente: Number(data?.mente),
     espirito: Number(data?.espirito),
   };
+
+  const lifeBar = {
+    id: id,
+    max_resis: Number(data?.max_resis),
+    act_resis: Number(data?.act_resis),
+    max_vitalidade: Number(data?.max_vitalidade),
+    act_vitalidade: Number(data?.act_vitalidade),
+    movimento: Number(data?.movimento),
+  };
   if (data == undefined) {
     return <Error />;
   } else {
     return (
       <>
         <PersonaName name={data?.persona.name_persona} />
-
+        <LifeBar status={lifeBar} />
         <Status status={status} />
       </>
     );
