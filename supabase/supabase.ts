@@ -156,6 +156,30 @@ export interface Database {
           },
         ];
       };
+      techniques: {
+        Row: {
+          Categoria: string | null;
+          Custo: string | null;
+          Descrição: string | null;
+          id: number;
+          Técnica: string | null;
+        };
+        Insert: {
+          Categoria?: string | null;
+          Custo?: string | null;
+          Descrição?: string | null;
+          id?: number;
+          Técnica?: string | null;
+        };
+        Update: {
+          Categoria?: string | null;
+          Custo?: string | null;
+          Descrição?: string | null;
+          id?: number;
+          Técnica?: string | null;
+        };
+        Relationships: [];
+      };
     };
     Views: {
       [_ in never]: never;
