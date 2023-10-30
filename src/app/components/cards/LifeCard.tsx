@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card';
 import { RotateCcw } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { restoreLife } from '../../../../utils/helpers';
+import { restoreLife } from '@utils/helpers';
 import { DamageSideBar } from '../DamageSideBar';
 
 export function LifeCard({ status }: TypeDamage) {

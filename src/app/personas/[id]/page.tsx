@@ -1,7 +1,7 @@
 import { LifeBar } from '@/app/components/LifeBar';
-import { getSheet } from '../../../../utils/helpers';
-import { PersonaName } from '../../components/PersonaName';
-import { Status } from '../../components/Status';
+import { getSheet } from '@utils/helpers';
+import { PersonaName } from '@/app/components/PersonaName';
+import { Status } from '@/app/components/Status';
 import Error from './error';
 
 export default async function Home({

@@ -13,7 +13,7 @@ import { Minus, Plus } from 'lucide-react';
 
 import { useRouter } from 'next/navigation';
 
-import { onClickConsequences } from '../../../../utils/helpers';
+import { onClickConsequences } from '@utils/helpers';
 
 export function ConsequencesCard({ status }: TypeDamage) {
   const router = useRouter();

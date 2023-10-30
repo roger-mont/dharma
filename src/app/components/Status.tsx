@@ -10,7 +10,7 @@ import {
 
 import { useToast } from '@/components/ui/use-toast';
 
-import { rollADice } from '../../../utils/dice';
+import { rollADice } from '@utils/dice';
 import { Button } from '@/components/ui/button';
 import { Dices } from 'lucide-react';
 

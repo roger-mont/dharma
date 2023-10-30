@@ -1,6 +1,6 @@
 'use-client';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '../supabase/supabase';
+import { Database } from '@db/supabase';
 
 export async function getSheet(id: number) {
   const data = await fetch(
