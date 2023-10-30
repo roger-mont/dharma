@@ -1,5 +1,6 @@
 import { Toaster } from '@/components/ui/toaster';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Personas',
@@ -16,9 +17,11 @@ export default function ElohimLayout({
       <head>
         <link rel="icon" href="/icon.ico" sizes="any" />
       </head>
-      <body className="flex flex-col h-screen w-full justify-center items-center">
-        {children}
-        <Toaster />
+      <body className="h-screen w-full">
+        <Suspense>
+          {children}
+          <Toaster />
+        </Suspense>
       </body>
     </html>
   );

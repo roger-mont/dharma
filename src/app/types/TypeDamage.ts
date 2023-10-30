@@ -6,5 +6,6 @@ export type TypeDamage = {
     max_vitalidade: number;
     act_vitalidade: number;
     movimento: number;
+    consequencias: number;
   };
 };

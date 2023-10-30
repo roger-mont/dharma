@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Label } from '@radix-ui/react-label';
 import { useRouter } from 'next/navigation';
-import { restoreLife, restoreResis } from '../../../utils/helpers';
+import { restoreResis } from '../../../utils/helpers';
 import { TypeDamage } from '../types/TypeDamage';
 
 export function ResisComponent({ status }: TypeDamage) {
@@ -10,10 +10,6 @@ export function ResisComponent({ status }: TypeDamage) {
   function onClickResis(value: number, id: number) {
     router.refresh();
     return restoreResis(value, id);
-  }
-  function onClickLife(value: number, id: number) {
-    router.refresh();
-    return restoreLife(value, id);
   }
 
   return (
@@ -26,9 +22,6 @@ export function ResisComponent({ status }: TypeDamage) {
       </Label>
       <Button onClick={() => onClickResis(status.max_resis, status.id)}>
         Reiniciar a Resitencia Atual
-      </Button>
-      <Button onClick={() => onClickLife(status.max_vitalidade, status.id)}>
-        Reiniciar a Vitalidade Atual
       </Button>
     </>
   );
