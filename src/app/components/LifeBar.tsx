@@ -1,27 +1,14 @@
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { TypeLifeBar } from '../types/TypeLifeBar';
-import { DamageSideBar } from './DamageSideBar';
+'use client';
 
-export function LifeBar({ status }: TypeLifeBar) {
+import { TypeDamage } from '../types/TypeDamage';
+import { ConsequencesCard } from './cards/ConsequencesCard';
+import { LifeCard } from './cards/LifeCard';
+
+export function LifeBar({ status }: TypeDamage) {
   return (
-    <aside className="flex justify-center content-around rounded-xl flex-wrap">
-      <Card className="max-w[20%] min-w[300px] m-2 text-center">
-        <CardHeader>
-          <CardTitle> Vida Atual: {status.act_vitalidade} </CardTitle>
-          <CardContent className="text-center">
-            Vida Maxima: {status.max_vitalidade}
-          </CardContent>
-        </CardHeader>
-        <CardFooter className="flex justify-center">
-          <DamageSideBar status={status} />
-        </CardFooter>
-      </Card>
+    <aside className="flex justify-center flex-wrap">
+      <LifeCard status={status} />
+      <ConsequencesCard status={status} />
     </aside>
   );
 }

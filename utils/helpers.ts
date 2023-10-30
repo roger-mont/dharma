@@ -2,14 +2,6 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '../supabase/supabase';
 
-// import { PostgrestError } from '@supabase/supabase-js';
-
-// export type DbResult<T> = T extends PromiseLike<infer U> ? U : never;
-// export type DbResultOk<T> = T extends PromiseLike<{ data: infer U }>
-//   ? Exclude<U, null>
-//   : never;
-// export type DbResultErr = PostgrestError;
-
 export async function getSheet(id: number) {
   const data = await fetch(
     `https://qydrdpgikrvsejkkemre.supabase.co/rest/v1/sheet?id=eq.${id}&select=*,persona,persona(name_persona)`,
@@ -23,7 +15,6 @@ export async function getSheet(id: number) {
 
   const response = await data.json();
 
-  console.log(response);
   return response[0];
 }
 
@@ -77,4 +68,43 @@ export async function restoreLife(value: number, id: number) {
     .eq('id', id);
 
   return query;
+}
+
+export async function consequencesUpdate(
+  value: Database['public']['Enums']['consequencias'],
+  id: number,
+) {
+  const supabase = createClientComponentClient<Database>();
+
+  const query = supabase
+    .from('sheet')
+    .update({
+      consequencias: value,
+    })
+    .eq('id', id);
+
+  return query;
+}
+
+export function onClickConsequences(value: number, id: number) {
+  switch (value) {
+    case 0: {
+      return consequencesUpdate('0', id);
+    }
+    case 1: {
+      return consequencesUpdate('1', id);
+    }
+    case 2: {
+      return consequencesUpdate('2', id);
+    }
+    case 3: {
+      return consequencesUpdate('3', id);
+    }
+    case 4: {
+      return consequencesUpdate('4', id);
+    }
+    case 5: {
+      return consequencesUpdate('5', id);
+    }
+  }
 }
