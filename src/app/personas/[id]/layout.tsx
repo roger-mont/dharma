@@ -17,7 +17,7 @@ export default function ElohimLayout({
       <head>
         <link rel="icon" href="/icon.ico" sizes="any" />
       </head>
-      <body className="h-screen w-full">
+      <body>
         <Suspense>
           {children}
           <Toaster />

@@ -31,11 +31,11 @@ export default async function Home({
     return <Error />;
   } else {
     return (
-      <>
+      <main className="h-screen w-full">
         <PersonaName name={data?.persona.name_persona} />
         <LifeBar status={lifeBar} />
         <Status status={status} />
-      </>
+      </main>
     );
   }
 }
