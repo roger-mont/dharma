@@ -106,5 +106,8 @@ export function onClickConsequences(value: number, id: number) {
     case 5: {
       return consequencesUpdate('5', id);
     }
+    case 6: {
+      return consequencesUpdate('6', id);
+    }
   }
 }

@@ -22,7 +22,7 @@ export function Status({ status }: StatusProps) {
   const keys = Object.keys(status);
 
   return (
-    <aside className="flex justify-center p-4 rounded-xl flex-wrap">
+    <section className="flex justify-center p-4 rounded-xl flex-wrap">
       {keys.map((key, index) => {
         return (
           <Card className="m-2 w-40 text-center content-center" key={index}>
@@ -54,6 +54,6 @@ export function Status({ status }: StatusProps) {
           </Card>
         );
       })}
-    </aside>
+    </section>
   );
 }
