@@ -27,9 +27,7 @@ export function Status({ status }: StatusProps) {
         return (
           <Card className="m-2 w-40 text-center content-center" key={index}>
             <CardHeader key={index}>
-              <CardTitle className="text-xl">{`${key[0].toUpperCase()}${key.substring(
-                1,
-              )}`}</CardTitle>
+              <CardTitle className="text-xl capitalize">{key}</CardTitle>
             </CardHeader>
             <CardContent className="text-3xl font-light">
               {status[key]}
@@ -39,9 +37,7 @@ export function Status({ status }: StatusProps) {
                 onClick={() =>
                   toast({
                     duration: 3000,
-                    title: `Resultado da rolagem de ${key[0].toUpperCase()}${key.substring(
-                      1,
-                    )}:`,
+                    title: `Resultado da rolagem de ${key}:`,
                     description: `${rollADice(status[key])?.dice} : ${rollADice(
                       status[key],
                     )?.total}`,
