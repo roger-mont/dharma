@@ -13,7 +13,7 @@ import { Minus, Plus } from 'lucide-react';
 
 import { useRouter } from 'next/navigation';
 
-import { onClickConsequences } from '../../../../utils/helpers';
+import { onClickConsequences } from '@utils/helpers';
 
 export function ConsequencesCard({ status }: TypeDamage) {
   const router = useRouter();
@@ -25,7 +25,7 @@ export function ConsequencesCard({ status }: TypeDamage) {
   }
 
   return (
-    <Card className="max-w-[50%] min-w-[20%] m-2 text-center">
+    <Card className="max-w-[50%] min-w-[15%] text-center">
       <CardHeader>
         <CardTitle>Consequencias</CardTitle>
       </CardHeader>

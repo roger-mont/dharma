@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Label } from '@radix-ui/react-label';
 import { useRouter } from 'next/navigation';
-import { restoreResis } from '../../../utils/helpers';
+import { restoreResis } from '@utils/helpers';
 import { TypeDamage } from '../types/TypeDamage';
 
 export function ResisComponent({ status }: TypeDamage) {

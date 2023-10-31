@@ -3,12 +3,14 @@
 import { TypeDamage } from '../types/TypeDamage';
 import { ConsequencesCard } from './cards/ConsequencesCard';
 import { LifeCard } from './cards/LifeCard';
+import { PenalityCard } from './cards/PenalityCard';
 
 export function LifeBar({ status }: TypeDamage) {
   return (
-    <aside className="flex justify-center flex-wrap">
+    <section className="flex justify-center flex-wrap max-w-[100%] gap-4 ">
       <LifeCard status={status} />
       <ConsequencesCard status={status} />
-    </aside>
+      <PenalityCard value={status.consequencias} />
+    </section>
   );
 }

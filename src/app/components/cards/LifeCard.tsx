@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card';
 import { RotateCcw } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { restoreLife } from '../../../../utils/helpers';
+import { restoreLife } from '@utils/helpers';
 import { DamageSideBar } from '../DamageSideBar';
 
 export function LifeCard({ status }: TypeDamage) {
@@ -20,7 +20,7 @@ export function LifeCard({ status }: TypeDamage) {
     return restoreLife(value, id);
   }
   return (
-    <Card className="max-w-[50%] min-w-[20%] m-2 text-center">
+    <Card className="max-w-[50%] min-w-[15%] text-center">
       <CardHeader>
         <CardTitle> Vida Atual: {status.act_vitalidade} </CardTitle>
         <CardContent>Vida Maxima: {status.max_vitalidade}</CardContent>

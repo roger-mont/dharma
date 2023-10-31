@@ -188,7 +188,7 @@ export interface Database {
       [_ in never]: never;
     };
     Enums: {
-      consequencias: '0' | '1' | '2' | '3' | '4' | '5';
+      consequencias: '0' | '1' | '2' | '3' | '4' | '5' | '6';
     };
     CompositeTypes: {
       [_ in never]: never;

@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import z from 'zod';
 import { formSchema } from '../types/zodSchema';
 import { TypeDamage } from '../types/TypeDamage';
-import { decreaseLife, decreaseResis } from '../../../utils/helpers';
+import { decreaseLife, decreaseResis } from '@utils/helpers';
 
 import { Button } from '@/components/ui/button';
 import {

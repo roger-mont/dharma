@@ -1,6 +1,6 @@
 'use-client';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '../supabase/supabase';
+import { Database } from '@db/supabase';
 
 export async function getSheet(id: number) {
   const data = await fetch(
@@ -105,6 +105,9 @@ export function onClickConsequences(value: number, id: number) {
     }
     case 5: {
       return consequencesUpdate('5', id);
+    }
+    case 6: {
+      return consequencesUpdate('6', id);
     }
   }
 }
