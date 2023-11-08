@@ -2,8 +2,8 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import z from 'zod';
-import { formSchema } from '../types/zodSchema';
-import { TypeDamage } from '../types/TypeDamage';
+import { formSchema } from '../../../types/zodSchema';
+import { TypeDamage } from '../../../types/TypeDamage';
 import { decreaseLife, decreaseResis } from '@utils/helpers';
 
 import { Button } from '@/components/ui/button';
@@ -20,7 +20,7 @@ import { Input } from '@/components/ui/input';
 
 import { useRouter } from 'next/navigation';
 
-export function DamageForm({ status }: TypeDamage) {
+export function DamageForm({ status }: { status: TypeDamage }) {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({

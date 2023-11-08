@@ -1,5 +1,4 @@
 'use client';
-import { TypeStatus } from '../types/TypeStatus';
 import {
   Card,
   CardContent,
@@ -13,11 +12,9 @@ import { useToast } from '@/components/ui/use-toast';
 import { rollADice } from '@utils/dice';
 import { Button } from '@/components/ui/button';
 import { Dices } from 'lucide-react';
+import { TypeStatus } from '../types/TypeStatus';
 
-type StatusProps = {
-  status: TypeStatus;
-};
-export function Status({ status }: StatusProps) {
+export function StatusSection({ status }: { status: TypeStatus }) {
   const { toast } = useToast();
   const keys = Object.keys(status);
 
@@ -30,10 +27,11 @@ export function Status({ status }: StatusProps) {
               <CardTitle className="text-xl capitalize">{key}</CardTitle>
             </CardHeader>
             <CardContent className="text-3xl font-light">
-              {status[key]}
+              {`${status[key]}`}
             </CardContent>
             <CardFooter className="flex justify-center">
               <Button
+                name={`roll dice for ${key}`}
                 onClick={() =>
                   toast({
                     duration: 3000,

@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 
 import { onClickConsequences } from '@utils/helpers';
 
-export function ConsequencesCard({ status }: TypeDamage) {
+export function ConsequencesCard({ status }: { status: TypeDamage }) {
   const router = useRouter();
 
   function onClick(value: number, id: number) {
@@ -31,10 +31,14 @@ export function ConsequencesCard({ status }: TypeDamage) {
       </CardHeader>
       <CardContent className="text-2xl">{status.consequencias}</CardContent>
       <CardFooter className="flex justify-center gap-4">
-        <Button onClick={() => onClick(status.consequencias - 1, status.id)}>
+        <Button
+          onClick={() => onClick(Number(status.consequencias) - 1, status.id)}
+        >
           <Minus />
         </Button>
-        <Button onClick={() => onClick(status.consequencias + 1, status.id)}>
+        <Button
+          onClick={() => onClick(Number(status.consequencias) + 1, status.id)}
+        >
           <Plus />
         </Button>
       </CardFooter>

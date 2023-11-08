@@ -1,41 +1,20 @@
-import { LifeBar } from '@/app/components/LifeBar';
+import { HealthSection } from '@/app/components/HealthSection';
 import { getSheet } from '@utils/helpers';
-import { PersonaName } from '@/app/components/PersonaName';
-import { Status } from '@/app/components/Status';
-import Error from './error';
+import { NameSection } from '@/app/components/NameSection';
+import { StatusSection } from '@/app/components/StatusSection';
 
 export default async function Home({
   params: { id },
 }: {
   params: { id: number };
 }) {
-  const data = await getSheet(id);
+  const { status, lifeBar, persona } = await getSheet(id);
 
-  const status = {
-    corpo: Number(data?.corpo),
-    movimento: Number(data?.movimento),
-    mente: Number(data?.mente),
-    espirito: Number(data?.espirito),
-  };
-
-  const lifeBar = {
-    id: id,
-    max_resis: Number(data?.max_resis),
-    act_resis: Number(data?.act_resis),
-    max_vitalidade: Number(data?.max_vitalidade),
-    act_vitalidade: Number(data?.act_vitalidade),
-    movimento: Number(data?.movimento),
-    consequencias: Number(data?.consequencias),
-  };
-  if (data == undefined) {
-    return <Error />;
-  } else {
-    return (
-      <main className="h-screen w-full">
-        <PersonaName name={data?.persona.name_persona} />
-        <LifeBar status={lifeBar} />
-        <Status status={status} />
-      </main>
-    );
-  }
+  return (
+    <main className="h-screen w-full">
+      <NameSection name={persona} />
+      <HealthSection status={lifeBar} />
+      <StatusSection status={status} />
+    </main>
+  );
 }
