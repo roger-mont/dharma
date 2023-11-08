@@ -1,6 +1,8 @@
 'use-client';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@db/supabase';
+import { TypeDamage } from '@/app/types/TypeDamage';
+import { TypeStatus } from '@/app/types/TypeStatus';
 
 export async function getSheet(id: number) {
   const data = await fetch(
@@ -13,9 +15,26 @@ export async function getSheet(id: number) {
     },
   );
 
-  const response = await data.json();
+  const [response] = await data.json();
 
-  return response[0];
+  const status: TypeStatus = {
+    corpo: Number(response.corpo),
+    movimento: Number(response.movimento),
+    mente: Number(response.mente),
+    espirito: Number(response.espirito),
+  };
+
+  const lifeBar: TypeDamage = {
+    id: Number(response.id),
+    max_resis: Number(response.max_resis),
+    act_resis: Number(response.act_resis),
+    max_vitalidade: Number(response.max_vitalidade),
+    act_vitalidade: Number(response.act_vitalidade),
+    movimento: Number(response.movimento),
+    consequencias: Number(response.consequencias),
+  };
+
+  return { status, lifeBar, persona: response.persona.name_persona };
 }
 
 export async function decreaseResis(damage: number, id: number) {

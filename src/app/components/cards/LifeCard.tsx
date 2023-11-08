@@ -1,4 +1,5 @@
 import { TypeDamage } from '@/app/types/TypeDamage';
+
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -7,18 +8,23 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { RotateCcw } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { restoreLife } from '@utils/helpers';
-import { DamageSideBar } from '../DamageSideBar';
 
-export function LifeCard({ status }: TypeDamage) {
+import { RotateCcw } from 'lucide-react';
+
+import { useRouter } from 'next/navigation';
+
+import { restoreLife } from '@utils/helpers';
+
+import { SideBar } from '../sideBar/SideBar';
+
+export function LifeCard({ status }: { status: TypeDamage }) {
   const router = useRouter();
 
   function onClickLife(value: number, id: number) {
     router.refresh();
     return restoreLife(value, id);
   }
+
   return (
     <Card className="max-w-[50%] min-w-[15%] text-center">
       <CardHeader>
@@ -26,7 +32,7 @@ export function LifeCard({ status }: TypeDamage) {
         <CardContent>Vida Maxima: {status.max_vitalidade}</CardContent>
       </CardHeader>
       <CardFooter className="flex justify-center gap-4">
-        <DamageSideBar status={status} />
+        <SideBar status={status} />
         <Button onClick={() => onClickLife(status.max_vitalidade, status.id)}>
           <RotateCcw />
         </Button>

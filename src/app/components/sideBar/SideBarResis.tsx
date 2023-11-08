@@ -2,9 +2,9 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@radix-ui/react-label';
 import { useRouter } from 'next/navigation';
 import { restoreResis } from '@utils/helpers';
-import { TypeDamage } from '../types/TypeDamage';
+import { TypeDamage } from '../../types/TypeDamage';
 
-export function ResisComponent({ status }: TypeDamage) {
+export function SideBarResis({ status }: { status: TypeDamage }) {
   const router = useRouter();
 
   function onClickResis(value: number, id: number) {
@@ -13,7 +13,7 @@ export function ResisComponent({ status }: TypeDamage) {
   }
 
   return (
-    <>
+    <section>
       <Label className="border-2 rounded-xl">
         Resistencia Maxima: {status.max_resis}
       </Label>
@@ -23,6 +23,6 @@ export function ResisComponent({ status }: TypeDamage) {
       <Button onClick={() => onClickResis(status.max_resis, status.id)}>
         Reiniciar a Resitencia Atual
       </Button>
-    </>
+    </section>
   );
 }

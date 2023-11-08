@@ -1,3 +1,7 @@
 export type TypeStatus = {
-  [key: string]: number;
+  readonly [key: string]: number;
+  corpo: number;
+  movimento: number;
+  mente: number;
+  espirito: number;
 };
