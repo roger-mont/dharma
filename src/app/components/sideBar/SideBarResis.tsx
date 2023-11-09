@@ -13,7 +13,7 @@ export function SideBarResis({ status }: { status: TypeDamage }) {
   }
 
   return (
-    <section>
+    <section className="flex flex-col gap-2">
       <Label className="border-2 rounded-xl">
         Resistencia Maxima: {status.max_resis}
       </Label>

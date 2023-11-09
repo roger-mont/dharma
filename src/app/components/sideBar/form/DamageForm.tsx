@@ -19,9 +19,12 @@ import {
 import { Input } from '@/components/ui/input';
 
 import { useRouter } from 'next/navigation';
+import { useToast } from '@/components/ui/use-toast';
 
 export function DamageForm({ status }: { status: TypeDamage }) {
   const router = useRouter();
+
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -92,7 +95,21 @@ export function DamageForm({ status }: { status: TypeDamage }) {
             </FormItem>
           )}
         />
-        <Button className="m-2" type="submit">
+        <Button
+          className="m-2"
+          type="submit"
+          disabled={!form.getValues().damage}
+          onClick={() =>
+            toast({
+              duration: 3000,
+              title: 'Dano',
+              description: `O total de dano foi: ${
+                Number(form.getValues().damage) -
+                Number(form.getValues().defense)
+              }`,
+            })
+          }
+        >
           Adicionar Dano
         </Button>
       </form>
