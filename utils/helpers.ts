@@ -140,9 +140,6 @@ export async function getTechiniques() {
       headers: {
         apikey: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF5ZHJkcGdpa3J2c2Vqa2tlbXJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc4MTg0NjAsImV4cCI6MjAxMzM5NDQ2MH0.oPV3-WqNPFjfJmi2A2vOHPecCW5P4mkZg3bxBiCCbfA`,
       },
-      next: {
-        revalidate: false,
-      },
     },
   );
 

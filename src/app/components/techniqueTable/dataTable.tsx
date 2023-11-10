@@ -25,6 +25,14 @@ import { Input } from '@/components/ui/input';
 
 import { useState } from 'react';
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { FilterIcon, RotateCcw } from 'lucide-react';
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
@@ -55,7 +63,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <section className="m-5">
-      <form className="flex items-center py-4 justify-center">
+      <form className="flex items-center py-4 justify-center gap-2">
         <Input
           placeholder="Filtrar Técnica..."
           value={(table.getColumn('Técnica')?.getFilterValue() as string) ?? ''}
@@ -64,6 +72,64 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="icon">
+              <FilterIcon />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem
+              onClick={() =>
+                table.getColumn('Categoria')?.setFilterValue('Aprimoramento')
+              }
+            >
+              Aprimoramento
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() =>
+                table.getColumn('Categoria')?.setFilterValue('Aptidão')
+              }
+            >
+              Aptidão
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() =>
+                table.getColumn('Categoria')?.setFilterValue('Conhecimento')
+              }
+            >
+              Conhecimento
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() =>
+                table.getColumn('Categoria')?.setFilterValue('Especial')
+              }
+            >
+              Especial
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() =>
+                table.getColumn('Categoria')?.setFilterValue('Façanha')
+              }
+            >
+              Façanha
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() =>
+                table.getColumn('Categoria')?.setFilterValue('Preparo')
+              }
+            >
+              Preparo
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <Button
+          type="button"
+          onClick={() => table.getColumn('Categoria')?.setFilterValue('')}
+        >
+          <RotateCcw />
+        </Button>
       </form>
 
       <Table className="rounded-md border">
@@ -85,6 +151,7 @@ export function DataTable<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
+
         <TableBody>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
