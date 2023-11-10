@@ -17,6 +17,8 @@ export async function getSheet(id: number) {
 
   const [response] = await data.json();
 
+  console.log(response);
+
   const status: TypeStatus = {
     corpo: Number(response.corpo),
     movimento: Number(response.movimento),

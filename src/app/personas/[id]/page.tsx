@@ -2,9 +2,9 @@ import { HealthSection } from '@/app/components/HealthSection';
 import { getSheet, getTechiniques } from '@utils/helpers';
 import { NameSection } from '@/app/components/NameSection';
 import { StatusSection } from '@/app/components/StatusSection';
-import { Tables } from '@/app/types/TypeTechiniques';
-import { columns } from '@/app/components/techniqueTable/colums';
+import Header from '@/app/components/Header';
 import { DataTable } from '@/app/components/techniqueTable/dataTable';
+import { columns } from '@/app/components/techniqueTable/colums';
 
 export default async function Home({
   params: { id },
@@ -12,11 +12,14 @@ export default async function Home({
   params: { id: number };
 }) {
   const { status, lifeBar, persona } = await getSheet(id);
-  const techniques: Tables<'techniques'>[] = await getTechiniques();
+  const techniques = await getTechiniques();
 
   return (
     <main>
-      <NameSection name={persona} />
+      <Header>
+        <NameSection name={persona} />
+      </Header>
+
       <HealthSection status={lifeBar} />
       <StatusSection status={status} />
       <DataTable columns={columns} data={techniques} />
