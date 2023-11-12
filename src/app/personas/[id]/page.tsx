@@ -1,5 +1,5 @@
 import { HealthSection } from '@/app/components/HealthSection';
-import { getSheet, getTechiniques } from '@utils/helpers';
+import { getPicture, getSheet, getTechiniques } from '@utils/helpers';
 import { NameSection } from '@/app/components/NameSection';
 import { StatusSection } from '@/app/components/StatusSection';
 import Header from '@/app/components/Header';
@@ -13,10 +13,11 @@ export default async function Home({
 }) {
   const { status, lifeBar, persona } = await getSheet(id);
   const techniques = await getTechiniques();
+  const image = await getPicture(id, persona);
 
   return (
     <main>
-      <Header>
+      <Header imageSrc={image.publicUrl}>
         <NameSection name={persona} />
       </Header>
 

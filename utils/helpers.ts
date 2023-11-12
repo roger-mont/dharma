@@ -17,8 +17,6 @@ export async function getSheet(id: number) {
 
   const [response] = await data.json();
 
-  console.log(response);
-
   const status: TypeStatus = {
     corpo: Number(response.corpo),
     movimento: Number(response.movimento),
@@ -144,7 +142,16 @@ export async function getTechiniques() {
   );
 
   const response = await data.json();
-  console.log('store');
 
   return response;
+}
+
+export async function getPicture(id: number, persona: string) {
+  const supabase = createClientComponentClient<Database>();
+
+  const { data } = await supabase.storage
+    .from('avatars')
+    .getPublicUrl(`${id}/${persona}.jpg`);
+
+  return data;
 }
